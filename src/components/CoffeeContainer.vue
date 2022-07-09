@@ -30,14 +30,22 @@ export default {
 <style lang="scss" scoped>
 .container {
   max-width: 120rem;
-  min-height: 90rem;
+  min-height: 120vh;
   border-radius: 1rem;
   background-color: $secondary;
   margin: 8rem auto;
   padding-top: 5rem;
   padding-bottom: 5rem;
   position: relative;
+  @media only screen and (max-width: 1000px) {
+    margin: 0 auto;
+    padding-top: 2rem;
+    min-height: 90vh;
+  }
   &__image-right {
+    @media only screen and (max-width: 1000px) {
+      display: none;
+    }
     position: absolute;
     top: 15rem;
     right: 2rem;
@@ -47,6 +55,9 @@ export default {
     top: 35rem;
     left: 5rem;
     transform: rotate(10deg);
+    @media only screen and (max-width: 1000px) {
+      display: none;
+    }
   }
 }
 .coffee-form {

@@ -25,11 +25,6 @@ export default {
 
 <style lang="scss" scoped>
 .user-form {
-  // position: absolute;
-  // z-index: 4444;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   display: flex;
   gap: 3rem;
   flex-direction: column;
@@ -42,7 +37,7 @@ export default {
   position: relative;
   padding: 2rem 0 0;
   margin-top: 10px;
-  width: 50rem;
+  width: 40rem;
 }
 
 .form__field {

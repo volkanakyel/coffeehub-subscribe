@@ -72,6 +72,7 @@ export default {
     flex-basis: 25%;
     text-transform: capitalize;
     font-size: 3rem;
+    margin-right: 2rem;
   }
   &__price {
     text-transform: capitalize;

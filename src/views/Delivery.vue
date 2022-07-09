@@ -77,6 +77,9 @@ export default {
   top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media only screen and (max-width: 1000px) {
+    width: 40rem;
+  }
 }
 .progress-bar {
   border-radius: 9999px;
@@ -94,7 +97,7 @@ export default {
 .button-actions {
   margin-top: 3rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 3rem;
 }
 </style>

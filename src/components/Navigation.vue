@@ -38,7 +38,7 @@ export default {
 .button-actions {
   margin-top: 3rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 3rem;
 }
 </style>

@@ -82,6 +82,11 @@ export default {
 <style lang="scss" scoped>
 .coffee {
   &__list {
+    @media only screen and (max-width: 1000px) {
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
