@@ -1,31 +1,37 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    node: true
   },
-  extends: [
-    "plugin:vue/vue3-essential",
-    "@vue/airbnb",
-    "eslint:recommended",
-    "@vue/eslint-config-prettier",
-  ],
+  extends: ['plugin:vue/essential', 'airbnb-base'],
   parserOptions: {
-    parser: "@babel/eslint-parser",
+    parser: '@babel/eslint-parser'
   },
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "vuejs-accessibility/click-events-have-key-events": "off",
+    'vue/multi-word-component-names': 'off',
+    'import/no-unresolved': 'off',
+    'comma-dangle': 'off',
+    'vue/valid-v-model': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+    'operator-linebreak': 'off',
+    'no-plusplus': 'off',
+    'vue/no-multiple-template-root': 'off',
+    indent: 'off',
+    'vue/no-reserved-component-names': 'off',
+    'import/extensions': 'off',
+    'no-unused-vars': 'off',
+    'no-param-reassign': 'off',
+    'no-shadow': 'off',
+    'import/prefer-default-export': 'off',
+    'no-undef': 'off'
   },
   overrides: [
     {
-      files: [
-        "**/__tests__/*.{j,t}s?(x)",
-        "**/tests/unit/**/*.spec.{j,t}s?(x)",
-      ],
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)'],
       env: {
-        jest: true,
-      },
-    },
-  ],
+        jest: true
+      }
+    }
+  ]
 };

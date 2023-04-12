@@ -9,8 +9,8 @@
 </template>
 
 <script setup>
-import CoffeeCard from '@/components/CoffeeCard.vue';
 import { ref } from 'vue';
+import CoffeeCard from '@/components/CoffeeCard.vue';
 
 const emit = defineEmits(['planSelect']);
 

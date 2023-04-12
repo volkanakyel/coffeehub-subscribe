@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-import getWeight from '@/utils/getWeight';
 import { defineProps } from 'vue';
+import getWeight from '@/utils/getWeight';
 
 const emit = defineEmits(['selectedPlan']);
 

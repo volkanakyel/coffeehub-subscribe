@@ -11,7 +11,7 @@
     </div>
     <div class="button-actions">
       <button class="base-button">Back</button>
-      <button class="base-button">Next</button>
+      <button class="base-button" @click="nextStep">Next</button>
     </div>
   </div>
 </template>
@@ -30,6 +30,9 @@ const selectedPlan = ref({});
 const progress = computed(() => (currentStepNumber.value / stepNumber) * 100);
 const selectedCoffeePlan = (plan) => {
   selectedPlan.value = plan;
+};
+const nextStep = () => {
+  currentStepNumber.value++;
 };
 </script>
 
