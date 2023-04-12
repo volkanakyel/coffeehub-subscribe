@@ -1,6 +1,8 @@
 <template>
-  <div :class="props.availablePlan.selectedPlan ? 'card__container--active' : 'card__container'"
-    @click="handleClick(props.availablePlan)">
+  <div
+    :class="props.availablePlan.selectedPlan ? 'card__container--active' : 'card__container'"
+    @click="handleClick(props.availablePlan)"
+  >
     <div class="card__quantity">{{ getWeight(props.availablePlan.quantity) }}</div>
     <div class="card__description">
       <p class="card__title">{{ props.availablePlan.title }}</p>
@@ -37,7 +39,7 @@ export default {
     cursor: pointer;
     position: relative;
     max-width: 65rem;
-    box-shadow: 0 2rem 6rem rgba(0, 0, 0, .3);
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
     padding: 2rem;
     display: flex;
     align-items: center;
