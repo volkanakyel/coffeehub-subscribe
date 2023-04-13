@@ -24,12 +24,12 @@ const handleClick = (selectedPlan) => {
   emit('selectedPlan', selectedPlan);
 };
 const props = defineProps({
-  availablePlan: Object,
+  availablePlan: Object
 });
 </script>
 <script>
 export default {
-  name: 'CoffeeCard',
+  name: 'CoffeeCard'
 };
 </script>
 
@@ -43,6 +43,7 @@ export default {
     padding: 2rem;
     display: flex;
     align-items: center;
+    margin: 0 auto;
     border: 1px solid transparent;
 
     &--active {

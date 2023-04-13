@@ -3,7 +3,7 @@
     <CoffeeListSection v-if="currentStepNumber === 1" @planSelected="selectedCoffeePlan" />
     <FormUserDetails v-if="currentStepNumber === 2" @updateForm="updateFormUserDetails" />
     <FormAddress v-if="currentStepNumber === 3" @updateAddress="updateFormAddress" />
-    <FormReviewOrder v-if="currentStepNumber === 4" />
+    <FormReviewOrder v-if="currentStepNumber === 4" :selectedPlan="selectedPlan" />
     <Navigation
       @prev="previousStep"
       @next="nextStep"
