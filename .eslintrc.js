@@ -11,6 +11,7 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'import/no-unresolved': 'off',
     'comma-dangle': 'off',
+    'vue/no-v-model-argument': 'off',
     'vue/valid-v-model': 'off',
     'implicit-arrow-linebreak': 'off',
     'function-paren-newline': 'off',

@@ -1,25 +1,46 @@
 <template>
   <div class="user-container">
-    <form class="user-form">
+    <form @input="updateForm" class="user-form">
       <div class="form__group field">
-        <input name="email" type="email" class="form__field" placeholder="Email" />
+        <input
+          v-model="form.email"
+          name="email"
+          type="email"
+          class="form__field"
+          placeholder="Email"
+        />
         <label for="email" class="form__label">Email</label>
       </div>
       <div class="form__group field">
-        <input type="password" class="form__field" placeholder="Password" />
+        <input v-model="form.password" type="password" class="form__field" placeholder="Password" />
         <label for="password" class="form__label">Password</label>
       </div>
       <div class="form__group field">
-        <input type="input" class="form__field" placeholder="Name" />
+        <input v-model="form.name" type="input" class="form__field" placeholder="Name" />
         <label for="name" class="form__label">Name</label>
       </div>
     </form>
   </div>
 </template>
 
+<script setup>
+import { ref, reactive, defineEmits } from 'vue';
+
+const emit = defineEmits(['updateForm']);
+
+const form = reactive({
+  email: '',
+  password: '',
+  name: ''
+});
+
+const updateForm = () => {
+  emit('updateForm', form);
+};
+</script>
 <script>
 export default {
-  name: 'UserAccountForm',
+  name: 'UserAccountForm'
 };
 </script>
 

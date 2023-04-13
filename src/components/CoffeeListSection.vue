@@ -9,10 +9,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import CoffeeCard from '@/components/CoffeeCard.vue';
 
-const emit = defineEmits(['planSelect']);
+const emit = defineEmits(['planSelected']);
 
 const planCategories = [
   {
@@ -22,7 +21,7 @@ const planCategories = [
     quantity: 250,
     price: 19,
     selectedPlan: false,
-    index: 0,
+    index: 0
   },
   {
     title: 'The curious',
@@ -31,7 +30,7 @@ const planCategories = [
     quantity: 500,
     price: 29,
     selectedPlan: false,
-    index: 1,
+    index: 1
   },
   {
     title: 'The addict',
@@ -40,17 +39,10 @@ const planCategories = [
     quantity: 1000,
     price: 49,
     selectedPlan: false,
-    index: 2,
-  },
+    index: 2
+  }
 ];
-const isCoffeePlanMissing = ref(false);
 const getSelectedPlan = (plan) => {
-  isCoffeePlanMissing.value = false;
-  planCategories.forEach((categories) => {
-    // eslint-disable-next-line no-param-reassign
-    categories.selectedPlan = false;
-  });
-  planCategories[plan.index].selectedPlan = true;
   emit('planSelected', plan);
 };
 </script>

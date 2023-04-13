@@ -15,17 +15,12 @@
 
 <script>
 export default {
-  name: 'UserDeliveryForm',
+  name: 'UserDeliveryForm'
 };
 </script>
 
 <style lang="scss" scoped>
 .user-form {
-  // position: absolute;
-  // z-index: 4444;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   display: flex;
   gap: 3rem;
   flex-direction: column;
