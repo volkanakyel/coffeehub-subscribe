@@ -1,29 +1,23 @@
-# coffeehub-subscribe
+# CoffeeHub ☕️
 
-## Project setup
-```
-yarn install
-```
+CoffeeHub is a Vue3 multiple step form where you can choose a subscbription for your coffee needs.
+Though each step you will be able to customize your experience and receive a confirmation of your order.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Tech Stack
 
-### Compiles and minifies for production
-```
-yarn build
-```
+**Client:** Vue3, SASS
 
-### Run your unit tests
-```
-yarn test:unit
-```
+## Authors
 
-### Lints and fixes files
-```
-yarn lint
-```
+- [@volkanakyel](https://www.github.com/volkanakyel)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Installation
+
+Install and run invoice motion with npm
+
+```bash
+  cd my-project
+  npm || yarn install /* Installation */
+  npm || yarn run serve /* Development environment */
+  npm || yarn run build /* Build */
+```
