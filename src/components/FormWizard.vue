@@ -2,7 +2,7 @@
   <FormPlanPicker>
     <CoffeeListSection v-if="currentStepNumber === 1" @planSelected="selectedCoffeePlan" />
     <FormUserDetails v-if="currentStepNumber === 2" @updateForm="updateFormUserDetails" />
-    <FormAddress v-if="currentStepNumber === 3" />
+    <FormAddress v-if="currentStepNumber === 3" @updateAddress="updateFormAddress" />
     <FormReviewOrder v-if="currentStepNumber === 4" />
     <Navigation
       @prev="previousStep"
@@ -39,6 +39,11 @@ const selectedCoffeePlan = (plan) => {
 const userFormDetails = reactive({});
 const updateFormUserDetails = (form) => {
   Object.assign(userFormDetails, form);
+};
+
+const userFormAddress = reactive({});
+const updateFormAddress = (formAddress) => {
+  Object.assign(userFormAddress, formAddress);
 };
 </script>
 

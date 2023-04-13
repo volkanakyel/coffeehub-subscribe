@@ -1,17 +1,36 @@
 <template>
   <div class="user-container">
-    <form class="user-form">
+    <form @input="updateAddress" class="user-form">
       <div class="form__group field">
-        <input type="text" class="form__field" placeholder="Adress" />
+        <input v-model="formAddress.name" type="text" class="form__field" placeholder="Adress" />
         <label for="name" class="form__label">Name</label>
       </div>
       <div class="form__group field">
-        <input type="adress" class="form__field" placeholder="Adress" />
+        <input
+          v-model="formAddress.address"
+          type="adress"
+          class="form__field"
+          placeholder="Adress"
+        />
         <label for="adress" class="form__label">Adress</label>
       </div>
     </form>
   </div>
 </template>
+
+<script setup>
+import { reactive, defineEmits } from 'vue';
+
+const emit = defineEmits(['updateAddress']);
+const formAddress = reactive({
+  address: '',
+  name: ''
+});
+
+const updateAddress = () => {
+  emit('updateAddress', formAddress);
+};
+</script>
 
 <script>
 export default {
