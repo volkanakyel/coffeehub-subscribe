@@ -1,7 +1,8 @@
 <template>
   <div
-    :class="props.availablePlan.selectedPlan ? 'card__container--active' : 'card__container'"
-    @click="handleClick(props.availablePlan)"
+    :class="{ 'card__container--active': props.availablePlan.selectedPlan }"
+    class="card__container"
+    @click="handleClick(props.availablePlan.index)"
   >
     <div class="card__quantity">{{ getWeight(props.availablePlan.quantity) }}</div>
     <div class="card__description">
@@ -10,7 +11,7 @@
         {{ availablePlan.description }}
       </p>
     </div>
-    <p class="card__price">{{ availablePlan.price }}</p>
+    <p class="card__price">{{ props.availablePlan.price }}</p>
   </div>
 </template>
 
@@ -20,8 +21,8 @@ import getWeight from '@/utils/getWeight';
 
 const emit = defineEmits(['selectedPlan']);
 
-const handleClick = (selectedPlan) => {
-  emit('selectedPlan', selectedPlan);
+const handleClick = (index) => {
+  emit('selectedPlan', index);
 };
 const props = defineProps({
   availablePlan: Object
@@ -47,12 +48,6 @@ export default {
     border: 1px solid transparent;
 
     &--active {
-      max-width: 65rem;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      box-shadow: 0px -5px 20px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 0.5rem;
       border: 1px solid #fff;
     }
 

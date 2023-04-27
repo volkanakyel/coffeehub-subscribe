@@ -8,8 +8,8 @@ import FormWizard from './components/FormWizard.vue';
 export default {
   name: 'App',
   components: {
-    FormWizard,
-  },
+    FormWizard
+  }
 };
 </script>
 

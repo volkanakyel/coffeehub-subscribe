@@ -10,6 +10,7 @@ module.exports = {
   rules: {
     'vue/multi-word-component-names': 'off',
     'import/no-unresolved': 'off',
+    'vue/no-parsing-error': 'off',
     'comma-dangle': 'off',
     'vue/no-v-model-argument': 'off',
     'vue/valid-v-model': 'off',

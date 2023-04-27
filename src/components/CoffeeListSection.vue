@@ -1,7 +1,7 @@
 <template>
   <div class="coffee-form">
     <div class="coffee-step">
-      <div class="coffee__list" v-for="(category, index) in planCategories" :key="index">
+      <div class="coffee__list" v-for="category in planCategories" :key="category.index">
         <CoffeeCard :availablePlan="category" @selectedPlan="getSelectedPlan" />
       </div>
     </div>
@@ -9,11 +9,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import CoffeeCard from '@/components/CoffeeCard.vue';
 
 const emit = defineEmits(['planSelected']);
 
-const planCategories = [
+const planCategories = ref([
   {
     title: 'The single',
     description:
@@ -41,9 +42,13 @@ const planCategories = [
     selectedPlan: false,
     index: 2
   }
-];
-const getSelectedPlan = (plan) => {
-  emit('planSelected', plan);
+]);
+const getSelectedPlan = (id) => {
+  planCategories.value.forEach((plan) => {
+    plan.selectedPlan = false;
+  });
+  planCategories.value[id].selectedPlan = true;
+  emit('planSelected', planCategories.value[id]);
 };
 </script>
 
