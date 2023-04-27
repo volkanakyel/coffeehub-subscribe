@@ -43,4 +43,7 @@ body {
     color: $base-white;
     background-color: $primary;
   }
+  &:disabled {
+    background-color: grey;
+  }
 }

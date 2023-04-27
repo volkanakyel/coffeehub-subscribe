@@ -5,7 +5,7 @@
     </div>
     <div class="button-actions">
       <button class="base-button" @click="prevStep">Back</button>
-      <button class="base-button" @click="nextStep">Next</button>
+      <button class="base-button" :disabled="!canGoNext" @click="nextStep">Next</button>
     </div>
   </div>
 </template>
@@ -15,7 +15,8 @@ import { defineProps, computed, defineEmits } from 'vue';
 
 const props = defineProps({
   currentStepNumber: { type: Number },
-  stepNumber: { type: Number, default: 4 }
+  stepNumber: { type: Number, default: 4 },
+  canGoNext: { type: Boolean, required: true }
 });
 const emit = defineEmits(['next', 'prev']);
 const progress = computed(() => (props.currentStepNumber / props.stepNumber) * 100);

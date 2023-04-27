@@ -9,6 +9,7 @@
       @next="nextStep"
       :currentStepNumber="currentStepNumber"
       :stepNumber="stepNumber"
+      :canGoNext="canGoNext"
     />
   </FormPlanPicker>
 </template>
@@ -24,8 +25,10 @@ import Navigation from './Navigation.vue';
 
 const currentStepNumber = ref(1);
 const stepNumber = 4;
+const canGoNext = ref(false);
 const nextStep = () => {
   currentStepNumber.value++;
+  canGoNext.value = false;
 };
 const previousStep = () => {
   currentStepNumber.value--;
@@ -34,11 +37,13 @@ const previousStep = () => {
 const selectedPlan = reactive({});
 const selectedCoffeePlan = (plan) => {
   Object.assign(selectedPlan, plan);
+  canGoNext.value = true;
 };
 
 const userFormDetails = reactive({});
 const updateFormUserDetails = (form) => {
   Object.assign(userFormDetails, form);
+  canGoNext.value = true;
 };
 
 const userFormAddress = reactive({});
