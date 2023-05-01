@@ -1,5 +1,13 @@
 <template>
-  <FormPlanPicker>
+  <div>
+    <KeepAlive>
+      <component
+        ref="currentStep"
+        :is="currentStep"
+        @update="processStep"
+        :wizardData="form"
+      ></component>
+    </KeepAlive>
     <CoffeeListSection v-if="currentStepNumber === 1" @planSelected="selectedCoffeePlan" />
     <FormUserDetails v-if="currentStepNumber === 2" @updateForm="updateFormUserDetails" />
     <FormAddress v-if="currentStepNumber === 3" @updateAddress="updateFormAddress" />
@@ -8,23 +16,21 @@
       @prev="previousStep"
       @next="nextStep"
       :currentStepNumber="currentStepNumber"
-      :stepNumber="stepNumber"
+      :stepNumber="stepsLength"
       :canGoNext="canGoNext"
     />
-  </FormPlanPicker>
+  </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
-import FormPlanPicker from '@/components/FormPlanPicker.vue';
+import { ref, reactive, computed } from 'vue';
 import CoffeeListSection from '@/components/CoffeeListSection.vue';
 import FormUserDetails from '@/components/FormUserDetails.vue';
 import FormAddress from '@/components/FormAddress.vue';
 import FormReviewOrder from '@/components/FormReviewOrder.vue';
-import Navigation from './Navigation.vue';
+import Navigation from '@/components/Navigation.vue';
 
 const currentStepNumber = ref(1);
-const stepNumber = 4;
 const canGoNext = ref(false);
 const nextStep = () => {
   currentStepNumber.value++;
@@ -32,6 +38,24 @@ const nextStep = () => {
 };
 const previousStep = () => {
   currentStepNumber.value--;
+};
+const steps = ref(['CoffeeListSection', 'FormUserDetails', 'FormAddress', 'FormReviewOrder']);
+const stepsLength = computed(() => steps.value.length);
+const currentStep = computed(() => steps.value[currentStepNumber.value - 1]);
+const form = ref({
+  plan: null,
+  email: null,
+  name: null,
+  password: null,
+  address: null,
+  recipient: null,
+  chocolate: false,
+  otherTreat: false
+});
+
+const processStep = (step) => {
+  Object.assign(form.value, step.data);
+  canGoNext.value = step.valid;
 };
 
 const selectedPlan = reactive({});

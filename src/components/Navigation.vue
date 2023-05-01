@@ -5,7 +5,7 @@
     </div>
     <div class="button-actions">
       <button class="base-button" @click="prevStep">Back</button>
-      <button class="base-button" :disabled="!canGoNext" @click="nextStep">Next</button>
+      <button class="base-button" @click="nextStep">Next</button>
     </div>
   </div>
 </template>

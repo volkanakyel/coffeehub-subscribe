@@ -47,3 +47,55 @@ body {
     background-color: grey;
   }
 }
+
+.container {
+  max-width: 120rem;
+  min-height: 120vh;
+  border-radius: 1rem;
+  background-color: #c99e71;
+  margin: 8rem auto;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+
+  @media only screen and (max-width: 1000px) {
+    margin: 0 auto;
+    padding-top: 2rem;
+    min-height: 90vh;
+  }
+
+  &__image-right {
+    @media only screen and (max-width: 1000px) {
+      display: none;
+    }
+
+    position: absolute;
+    top: 15rem;
+    right: 2rem;
+  }
+
+  &__image-left {
+    position: absolute;
+    top: 35rem;
+    left: 5rem;
+    transform: rotate(10deg);
+
+    @media only screen and (max-width: 1000px) {
+      display: none;
+    }
+  }
+}
+
+.coffee-form {
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 4.8rem;
+  }
+
+  &__description {
+    font-size: 1.8rem;
+  }
+}

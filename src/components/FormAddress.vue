@@ -1,20 +1,33 @@
 <template>
-  <div class="user-container">
-    <form @input="updateAddress" class="user-form">
-      <div class="form__group field">
-        <input v-model="formAddress.name" type="text" class="form__field" placeholder="Your name" />
-        <label for="name" class="form__label">Name</label>
-      </div>
-      <div class="form__group field">
-        <input
-          v-model="formAddress.address"
-          type="address"
-          class="form__field"
-          placeholder="Address"
-        />
-        <label for="address" class="form__label">Adress</label>
-      </div>
-    </form>
+  <div class="container">
+    <img src="../assets/img/coffee-cup.png" alt="" class="container__image-right" />
+    <img src="../assets/img/coffee-machine.png" width="100" alt="" class="container__image-left" />
+    <div class="coffee-form__header">
+      <h1 class="coffee-form__title">Coffee plan</h1>
+      <p class="coffee-form__description">Choose the plan that suits you</p>
+    </div>
+    <div class="user-container">
+      <form @input="updateAddress" class="user-form">
+        <div class="form__group field">
+          <input
+            v-model="formAddress.name"
+            type="text"
+            class="form__field"
+            placeholder="Your name"
+          />
+          <label for="name" class="form__label">Name</label>
+        </div>
+        <div class="form__group field">
+          <input
+            v-model="formAddress.address"
+            type="address"
+            class="form__field"
+            placeholder="Address"
+          />
+          <label for="address" class="form__label">Adress</label>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
