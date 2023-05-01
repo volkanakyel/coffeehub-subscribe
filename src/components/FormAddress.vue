@@ -2,17 +2,17 @@
   <div class="user-container">
     <form @input="updateAddress" class="user-form">
       <div class="form__group field">
-        <input v-model="formAddress.name" type="text" class="form__field" placeholder="Adress" />
+        <input v-model="formAddress.name" type="text" class="form__field" placeholder="Your name" />
         <label for="name" class="form__label">Name</label>
       </div>
       <div class="form__group field">
         <input
           v-model="formAddress.address"
-          type="adress"
+          type="address"
           class="form__field"
-          placeholder="Adress"
+          placeholder="Address"
         />
-        <label for="adress" class="form__label">Adress</label>
+        <label for="address" class="form__label">Adress</label>
       </div>
     </form>
   </div>

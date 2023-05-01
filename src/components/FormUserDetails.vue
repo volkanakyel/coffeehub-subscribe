@@ -7,7 +7,7 @@
           name="email"
           type="email"
           class="form__field"
-          placeholder="Email"
+          placeholder="your@email.com"
         />
         <label for="email" class="form__label">Email</label>
       </div>
@@ -16,7 +16,12 @@
         <label for="password" class="form__label">Password</label>
       </div>
       <div class="form__group field">
-        <input v-model="form.name" type="input" class="form__field" placeholder="Name" />
+        <input
+          v-model="form.name"
+          type="input"
+          class="form__field"
+          placeholder="What should we call you"
+        />
         <label for="name" class="form__label">Name</label>
       </div>
     </form>
@@ -24,7 +29,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, defineEmits } from 'vue';
+import { reactive, defineEmits } from 'vue';
 
 const emit = defineEmits(['updateForm']);
 

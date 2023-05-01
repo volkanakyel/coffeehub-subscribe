@@ -49,6 +49,7 @@ const updateFormUserDetails = (form) => {
 const userFormAddress = reactive({});
 const updateFormAddress = (formAddress) => {
   Object.assign(userFormAddress, formAddress);
+  canGoNext.value = true;
 };
 </script>
 
