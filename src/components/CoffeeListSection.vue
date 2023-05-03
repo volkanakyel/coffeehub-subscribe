@@ -31,7 +31,7 @@ const getSelectedPlan = (id) => {
     plan.selectedPlan = false;
   });
   planCategories.value[id].selectedPlan = true;
-  emit('update', { data: planCategories.value[id], valid: true });
+  emit('update', { data: { plan: planCategories.value[id] }, valid: true });
 };
 </script>
 

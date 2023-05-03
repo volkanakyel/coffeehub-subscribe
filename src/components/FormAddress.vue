@@ -41,7 +41,7 @@ const formAddress = reactive({
 });
 
 const updateAddress = () => {
-  emit('updateAddress', formAddress);
+  emit('update', { data: formAddress, valid: true });
 };
 </script>
 

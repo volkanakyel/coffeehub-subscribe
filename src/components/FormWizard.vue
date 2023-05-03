@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 import CoffeeListSection from '@/components/CoffeeListSection.vue';
 import FormUserDetails from '@/components/FormUserDetails.vue';
@@ -44,6 +44,10 @@ const form = ref({
   selectedPlan: null,
   otherTreat: false
 });
+const processStep = (step) => {
+  Object.assign(form.value, step.data);
+  canGoNext.value = step.valid;
+};
 const nextStep = () => {
   if (!isLastStep.value) {
     currentStepNumber.value++;
@@ -54,28 +58,6 @@ const previousStep = () => {
   if (!isFirstStep) {
     currentStepNumber.value--;
   }
-};
-const processStep = (step) => {
-  Object.assign(form.value, step.data);
-  canGoNext.value = step.valid;
-};
-
-const selectedPlan = reactive({});
-const selectedCoffeePlan = (plan) => {
-  Object.assign(selectedPlan, plan);
-  canGoNext.value = true;
-};
-
-const userFormDetails = reactive({});
-const updateFormUserDetails = (form) => {
-  Object.assign(userFormDetails, form);
-  canGoNext.value = true;
-};
-
-const userFormAddress = reactive({});
-const updateFormAddress = (formAddress) => {
-  Object.assign(userFormAddress, formAddress);
-  canGoNext.value = true;
 };
 </script>
 
