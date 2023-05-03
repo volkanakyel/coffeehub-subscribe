@@ -10,7 +10,7 @@
       <h2>Subscription</h2>
       <p>We'll send you carefully selected coffee every month</p>
       <div class="confirmation__offer">
-        <CoffeeCard :availablePlan="props.selectedPlan" />
+        <CoffeeCard :availablePlan="wizardData.selectedPlan" />
       </div>
       <h2>Level up your box</h2>
       <p>Treat yourself by levelling up your monthly package</p>
@@ -42,7 +42,7 @@
 import { defineProps } from 'vue';
 import CoffeeCard from './CoffeeCard.vue';
 
-const props = defineProps(['selectedPlan']);
+const props = defineProps(['wizardData']);
 </script>
 <script>
 export default {

@@ -29,15 +29,10 @@ import Navigation from '@/components/Navigation.vue';
 
 const currentStepNumber = ref(1);
 const canGoNext = ref(false);
-const nextStep = () => {
-  currentStepNumber.value++;
-  canGoNext.value = false;
-};
-const previousStep = () => {
-  currentStepNumber.value--;
-};
 const steps = [CoffeeListSection, FormUserDetails, FormAddress, FormReviewOrder];
 const stepsLength = computed(() => steps.length);
+const isLastStep = computed(() => currentStepNumber.value === steps.length);
+const isFirstStep = computed(() => currentStepNumber.value <= 1);
 const form = ref({
   plan: null,
   email: null,
@@ -46,8 +41,20 @@ const form = ref({
   address: null,
   recipient: null,
   chocolate: false,
+  selectedPlan: null,
   otherTreat: false
 });
+const nextStep = () => {
+  if (!isLastStep.value) {
+    currentStepNumber.value++;
+  }
+  canGoNext.value = false;
+};
+const previousStep = () => {
+  if (!isFirstStep) {
+    currentStepNumber.value--;
+  }
+};
 const processStep = (step) => {
   Object.assign(form.value, step.data);
   canGoNext.value = step.valid;
