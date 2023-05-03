@@ -18,6 +18,7 @@ module.exports = {
     'function-paren-newline': 'off',
     'operator-linebreak': 'off',
     'no-plusplus': 'off',
+    'object-curly-newline': 'off',
     'vue/no-multiple-template-root': 'off',
     indent: 'off',
     'vue/no-reserved-component-names': 'off',

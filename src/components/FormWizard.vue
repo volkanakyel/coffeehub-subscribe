@@ -3,15 +3,11 @@
     <KeepAlive>
       <component
         ref="currentStep"
-        :is="currentStep"
+        :is="steps[currentStepNumber - 1]"
         @update="processStep"
         :wizardData="form"
       ></component>
     </KeepAlive>
-    <CoffeeListSection v-if="currentStepNumber === 1" @planSelected="selectedCoffeePlan" />
-    <FormUserDetails v-if="currentStepNumber === 2" @updateForm="updateFormUserDetails" />
-    <FormAddress v-if="currentStepNumber === 3" @updateAddress="updateFormAddress" />
-    <FormReviewOrder v-if="currentStepNumber === 4" :selectedPlan="selectedPlan" />
     <Navigation
       @prev="previousStep"
       @next="nextStep"
@@ -24,6 +20,7 @@
 
 <script setup>
 import { ref, reactive, computed } from 'vue';
+
 import CoffeeListSection from '@/components/CoffeeListSection.vue';
 import FormUserDetails from '@/components/FormUserDetails.vue';
 import FormAddress from '@/components/FormAddress.vue';
@@ -39,9 +36,8 @@ const nextStep = () => {
 const previousStep = () => {
   currentStepNumber.value--;
 };
-const steps = ref(['CoffeeListSection', 'FormUserDetails', 'FormAddress', 'FormReviewOrder']);
-const stepsLength = computed(() => steps.value.length);
-const currentStep = computed(() => steps.value[currentStepNumber.value - 1]);
+const steps = [CoffeeListSection, FormUserDetails, FormAddress, FormReviewOrder];
+const stepsLength = computed(() => steps.length);
 const form = ref({
   plan: null,
   email: null,
@@ -52,7 +48,6 @@ const form = ref({
   chocolate: false,
   otherTreat: false
 });
-
 const processStep = (step) => {
   Object.assign(form.value, step.data);
   canGoNext.value = step.valid;

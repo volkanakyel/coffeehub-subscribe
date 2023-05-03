@@ -44,7 +44,7 @@
 <script setup>
 import { reactive, defineEmits } from 'vue';
 
-const emit = defineEmits(['updateForm']);
+const emit = defineEmits(['update']);
 
 const form = reactive({
   email: '',
@@ -53,7 +53,7 @@ const form = reactive({
 });
 
 const updateForm = () => {
-  emit('updateForm', form);
+  emit('update', { data: form, valid: true });
 };
 </script>
 <script>
