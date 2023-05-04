@@ -10,7 +10,7 @@
       <form @input="updateAddress" class="user-form">
         <div class="form__group field">
           <input
-            v-model="formAddress.name"
+            v-model="formAddress.recipient"
             type="text"
             class="form__field"
             placeholder="Your name"
@@ -32,16 +32,20 @@
 </template>
 
 <script setup>
-import { reactive, defineEmits } from 'vue';
+import { reactive, defineEmits, defineProps } from 'vue';
 
-const emit = defineEmits(['updateAddress']);
+const props = defineProps(['wizardData']);
+const emit = defineEmits(['update']);
 const formAddress = reactive({
   address: '',
-  name: ''
+  recipient: props.wizardData.name
 });
 
 const updateAddress = () => {
-  emit('update', { data: formAddress, valid: true });
+  emit('update', {
+    data: { recipient: formAddress.recipient, address: formAddress.address },
+    valid: true
+  });
 };
 </script>
 
