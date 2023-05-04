@@ -55,7 +55,7 @@ const nextStep = () => {
   canGoNext.value = false;
 };
 const previousStep = () => {
-  if (!isFirstStep) {
+  if (!isFirstStep.value) {
     currentStepNumber.value--;
   }
 };
