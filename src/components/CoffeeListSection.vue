@@ -20,6 +20,7 @@
 import { ref } from 'vue';
 import planContent from '@/data/planContent';
 import CoffeeCard from '@/components/CoffeeCard.vue';
+import { isObjectEmpty } from '@/utils/formValidator';
 
 const emit = defineEmits(['update']);
 
@@ -31,7 +32,11 @@ const getSelectedPlan = (id) => {
     plan.selectedPlan = false;
   });
   planCategories.value[id].selectedPlan = true;
-  emit('update', { data: { plan: planCategories.value[id] }, valid: true });
+  const selectedPlan = planCategories.value[id];
+  emit('update', {
+    data: { plan: planCategories.value[id] },
+    valid: isObjectEmpty(selectedPlan)
+  });
 };
 </script>
 

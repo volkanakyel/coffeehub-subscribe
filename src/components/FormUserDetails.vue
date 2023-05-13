@@ -24,6 +24,7 @@
             type="password"
             class="form__field"
             placeholder="Password"
+            autocomplete="on"
           />
           <label for="password" class="form__label">Password</label>
         </div>
@@ -43,6 +44,7 @@
 
 <script setup>
 import { reactive, defineEmits } from 'vue';
+import { checkFormValidity } from '@/utils/formValidator';
 
 const emit = defineEmits(['update']);
 
@@ -53,7 +55,7 @@ const form = reactive({
 });
 
 const updateForm = () => {
-  emit('update', { data: form, valid: true });
+  emit('update', { data: form, valid: checkFormValidity(form) });
 };
 </script>
 <script>
