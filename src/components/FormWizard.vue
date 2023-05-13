@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <div class="form-container">
+    <!-- <div class="coffee-form__header">
+      <h1 class="coffee-form__title">Coffee plan</h1>
+      <p class="coffee-form__description">Choose the plan that suits you</p>
+    </div> -->
     <KeepAlive>
       <component
         ref="currentStep"
@@ -62,6 +66,9 @@ const previousStep = () => {
 </script>
 
 <style lang="scss" scoped>
+.form-container {
+  position: relative;
+}
 .navigation {
   position: absolute;
   width: 80rem;
