@@ -33,6 +33,7 @@
 
 <script setup>
 import { reactive, defineEmits, defineProps } from 'vue';
+import { isValidName, checkAddressStr } from '@/utils/formValidator';
 
 const props = defineProps(['wizardData']);
 const emit = defineEmits(['update']);
@@ -44,7 +45,7 @@ const formAddress = reactive({
 const updateAddress = () => {
   emit('update', {
     data: { recipient: formAddress.recipient, address: formAddress.address },
-    valid: true
+    valid: checkAddressStr(formAddress.address) && isValidName(formAddress.recipient)
   });
 };
 </script>

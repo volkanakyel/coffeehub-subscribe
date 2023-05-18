@@ -10,7 +10,7 @@ const isValidPassword = (password) => {
   return passwordRegex.test(password);
 };
 
-const isValidName = (name) => {
+export const isValidName = (name) => {
   const nameRegex = /^[a-zA-Z@]+(([',. -][a-zA-Z@ ])?[a-zA-Z@]*)*$/;
   return nameRegex.test(name);
 };
@@ -22,3 +22,5 @@ export const checkFormValidity = (form) => {
   const isNameValid = isValidName(form.name);
   return isEmailValid && isPasswordValid && isNameValid;
 };
+
+export const checkAddressStr = (address) => address.includes(' ') && address.length > 2;
