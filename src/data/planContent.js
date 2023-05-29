@@ -2,7 +2,7 @@ const planContent = [
   {
     title: 'The single',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione molestiae dolores',
+      'One bag of freshly roasted coffee beans delivered to your house every month.',
     quantity: 250,
     price: 19,
     selectedPlan: false,
@@ -11,7 +11,7 @@ const planContent = [
   {
     title: 'The curious',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione molestiae dolores',
+      'Two different types of freshly roasted coffee every month.',
     quantity: 500,
     price: 29,
     selectedPlan: false,
@@ -20,7 +20,7 @@ const planContent = [
   {
     title: 'The addict',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione molestiae dolores',
+      'Two bags of two different types of freshly roasted coffee every month.',
     quantity: 1000,
     price: 49,
     selectedPlan: false,
