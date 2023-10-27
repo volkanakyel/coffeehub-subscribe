@@ -41,7 +41,7 @@ body {
   cursor: pointer;
   &:hover {
     color: $base-white;
-    background-color: $primary;
+  background-color: $primary;
   }
   &:disabled {
     background-color: grey;
@@ -50,10 +50,10 @@ body {
 
 .container {
   max-width: 120rem;
-  min-height: 120vh;
+  min-height: 100vh;
   border-radius: 1rem;
   background-color: #c99e71;
-  margin: 8rem auto;
+  margin: 0 auto;
   padding-top: 5rem;
   padding-bottom: 5rem;
   position: relative;
@@ -61,7 +61,7 @@ body {
   @media only screen and (max-width: 1000px) {
     margin: 0 auto;
     padding-top: 2rem;
-    min-height: 90vh;
+    // min-height: 100vh;
   }
 
   &__image-right {

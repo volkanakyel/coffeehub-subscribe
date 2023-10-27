@@ -2,16 +2,13 @@
   <div class="container">
     <img src="../assets/img/coffee-cup.png" alt="" class="container__image-right" />
     <img src="../assets/img/coffee-machine.png" width="100" alt="" class="container__image-left" />
-    <div class="coffee-form__header">
-      <h1 class="coffee-form__title">Coffee plan</h1>
-      <p class="coffee-form__description">Choose the plan that suits you</p>
+    <div class="coffee-list__header">
+      <h1 class="coffee-list__title">Coffee plan</h1>
+      <p class="coffee-list__description">Choose the plan that suits you</p>
     </div>
-    <div class="coffee-form">
-      <div class="coffee-step">
-        <div class="coffee__list" v-for="category in planCategories" :key="category.index">
-          <CoffeeCard :availablePlan="category" @selectedPlan="getSelectedPlan" />
-        </div>
-      </div>
+    <div class="coffee-list__plans">
+      <CoffeeCard v-for="category in planCategories" :key="category.index"
+      :availablePlan="category" @selectedPlan="getSelectedPlan" />
     </div>
   </div>
 </template>
@@ -41,24 +38,8 @@ const getSelectedPlan = (id) => {
 </script>
 
 <style lang="scss" scoped>
-.coffee {
-  &__list {
-    @media only screen and (max-width: 1000px) {
-      &:last-child {
-        margin-bottom: 2rem;
-      }
-    }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-  }
-}
-
-.coffee-form {
+.coffee-list {
   &__header {
     text-align: center;
   }
@@ -69,6 +50,23 @@ const getSelectedPlan = (id) => {
 
   &__description {
     font-size: 1.8rem;
+  }
+
+  &__plans {
+    @media only screen and (max-width: 1000px) {
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    max-width: 70rem;
+    padding: 0 2rem;
+    margin: 5rem auto;
   }
 }
 </style>

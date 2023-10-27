@@ -49,4 +49,15 @@ const nextStep = () => {
   justify-content: center;
   gap: 3rem;
 }
+.navigation {
+  position: absolute;
+  width: 80rem;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media only screen and (max-width: 1000px) {
+    width: 40rem;
+  }
+}
 </style>
