@@ -35,32 +35,53 @@
             class="form__field"
             placeholder="What should we call you"
           />
-          <label for="name" class="form__label">Name</label>
+          <label for="name" class="form__label">Full Name</label>
         </div>
       </form>
+      <div class="form__password">
+        <p class="form__password-rules" :class="{ 'form__password-valid': validPasswordLength }">
+          Password must be at least 6 characters long.
+        </p>
+        <p class="form__password-rules" :class="{ 'form__password-valid': validPasswordUppercase }">
+          Password must contain at least one uppercase letter.
+        </p>
+        <p class="form__password-rules" :class="{ 'form__password-valid': validPasswordDigit }">
+          Password must contain at least one digit.
+        </p>
+        <p
+          class="form__password-rules"
+          :class="{ 'form__password-valid': validPasswordDigitCharacter }"
+        >
+          Password must contain at least one special character (@, $, !, %, *, ?, &).
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, defineEmits } from 'vue';
-import { checkFormValidity } from '@/utils/formValidator';
+import { ref, defineEmits, computed } from "vue";
+import { checkFormValidity } from "@/utils/formValidator";
 
-const emit = defineEmits(['update']);
+const emit = defineEmits(["update"]);
 
-const form = reactive({
-  email: '',
-  password: '',
-  name: ''
+const form = ref({
+  email: "",
+  password: "",
+  name: "",
 });
 
 const updateForm = () => {
-  emit('update', { data: form, valid: checkFormValidity(form) });
+  emit("update", { data: form, valid: checkFormValidity(form.value) });
 };
+const validPasswordUppercase = computed(() => /[A-Z]/.test(form.value.password));
+const validPasswordLength = computed(() => form.value.password.length > 6);
+const validPasswordDigit = computed(() => /\d/.test(form.value.password));
+const validPasswordDigitCharacter = computed(() => /[@$!%*?&]/.test(form.value.password));
 </script>
 <script>
 export default {
-  name: 'UserAccountForm'
+  name: "UserAccountForm",
 };
 </script>
 
@@ -80,7 +101,19 @@ export default {
   margin-top: 10px;
   width: 40rem;
 }
+.form__password {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form__password-rules {
+  margin-top: 12px;
+}
 
+.form__password-valid {
+  color: green;
+}
 .form__field {
   width: 100%;
   border: 0;

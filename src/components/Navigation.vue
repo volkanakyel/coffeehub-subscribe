@@ -11,21 +11,21 @@
 </template>
 
 <script setup>
-import { defineProps, computed, defineEmits } from 'vue';
+import { defineProps, computed, defineEmits } from "vue";
 
 const props = defineProps({
   currentStepNumber: { type: Number },
   stepNumber: { type: Number, default: 4 },
   canGoNext: { type: Boolean, required: true }
 });
-const emit = defineEmits(['next', 'prev']);
+const emit = defineEmits(["next", "prev"]);
 const progress = computed(() => (props.currentStepNumber / props.stepNumber) * 100);
 
 const prevStep = () => {
-  emit('prev');
+  emit("prev");
 };
 const nextStep = () => {
-  emit('next');
+  emit("next");
 };
 </script>
 

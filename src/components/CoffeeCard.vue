@@ -16,13 +16,13 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-import getWeight from '@/utils/getWeight';
+import { defineProps } from "vue";
+import getWeight from "@/utils/getWeight";
 
-const emit = defineEmits(['selectedPlan']);
+const emit = defineEmits(["selectedPlan"]);
 
 const handleClick = (index) => {
-  emit('selectedPlan', index);
+  emit("selectedPlan", index);
 };
 const props = defineProps({
   availablePlan: Object
@@ -30,7 +30,7 @@ const props = defineProps({
 </script>
 <script>
 export default {
-  name: 'CoffeeCard'
+  name: "CoffeeCard"
 };
 </script>
 

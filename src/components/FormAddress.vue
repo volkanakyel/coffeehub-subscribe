@@ -32,27 +32,27 @@
 </template>
 
 <script setup>
-import { reactive, defineEmits, defineProps } from 'vue';
-import { isValidName, checkAddressStr } from '@/utils/formValidator';
+import { reactive, defineEmits, defineProps } from "vue";
+import { isValidName, checkAddressStr } from "@/utils/formValidator";
 
-const props = defineProps(['wizardData']);
-const emit = defineEmits(['update']);
+const props = defineProps(["wizardData"]);
+const emit = defineEmits(["update"]);
 const formAddress = reactive({
-  address: '',
+  address: "",
   recipient: props.wizardData.name
 });
 
 const updateAddress = () => {
-  emit('update', {
+  emit("update", {
     data: { recipient: formAddress.recipient, address: formAddress.address },
-    valid: checkAddressStr(formAddress.address) && isValidName(formAddress.recipient)
+    valid: checkAddressStr(formAddress.address) && formAddress.recipient
   });
 };
 </script>
 
 <script>
 export default {
-  name: 'UserDeliveryForm'
+  name: "UserDeliveryForm"
 };
 </script>
 

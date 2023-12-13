@@ -19,13 +19,13 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
-import CoffeeListSection from '@/components/CoffeeListSection.vue';
-import FormUserDetails from '@/components/FormUserDetails.vue';
-import FormAddress from '@/components/FormAddress.vue';
-import FormReviewOrder from '@/components/FormReviewOrder.vue';
-import Navigation from '@/components/Navigation.vue';
+import CoffeeListSection from "@/components/CoffeeListSection.vue";
+import FormUserDetails from "@/components/FormUserDetails.vue";
+import FormAddress from "@/components/FormAddress.vue";
+import FormReviewOrder from "@/components/FormReviewOrder.vue";
+import Navigation from "@/components/Navigation.vue";
 
 const currentStepNumber = ref(1);
 const canGoNext = ref(false);
@@ -42,7 +42,7 @@ const form = ref({
   recipient: null,
   chocolate: false,
   selectedPlan: null,
-  otherTreat: false
+  otherTreat: false,
 });
 const processStep = (step) => {
   Object.assign(form.value, step.data);
@@ -65,5 +65,4 @@ const previousStep = () => {
 .form-container {
   position: relative;
 }
-
 </style>

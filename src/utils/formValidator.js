@@ -23,4 +23,5 @@ export const checkFormValidity = (form) => {
   return isEmailValid && isPasswordValid && isNameValid;
 };
 
-export const checkAddressStr = (address) => address.includes(' ') && address.length > 2;
+// eslint-disable-next-line quotes
+export const checkAddressStr = (address) => address.includes(" ") && address.length > 2;

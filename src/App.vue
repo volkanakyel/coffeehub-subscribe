@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import FormWizard from './components/FormWizard.vue';
+import FormWizard from "./components/FormWizard.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     FormWizard
   }

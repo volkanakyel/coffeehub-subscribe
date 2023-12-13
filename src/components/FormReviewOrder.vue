@@ -39,10 +39,10 @@
 </template>
 
 <script setup>
-import { defineProps, ref, computed } from 'vue';
-import CoffeeCard from './CoffeeCard.vue';
+import { defineProps, ref, computed } from "vue";
+import CoffeeCard from "./CoffeeCard.vue";
 
-const props = defineProps(['wizardData']);
+const props = defineProps(["wizardData"]);
 const form = ref({
   chocolate: false,
   otherTreat: false
@@ -61,7 +61,7 @@ const totalPrice = computed(() => {
 </script>
 <script>
 export default {
-  name: 'Confirmation',
+  name: "Confirmation",
   components: { CoffeeCard }
 };
 </script>

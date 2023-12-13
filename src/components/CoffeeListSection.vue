@@ -14,12 +14,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import planContent from '@/data/planContent';
-import CoffeeCard from '@/components/CoffeeCard.vue';
-import { isObjectEmpty } from '@/utils/formValidator';
+import { ref } from "vue";
+import planContent from "@/data/planContent";
+import CoffeeCard from "@/components/CoffeeCard.vue";
+import { isObjectEmpty } from "@/utils/formValidator";
 
-const emit = defineEmits(['update']);
+const emit = defineEmits(["update"]);
 
 const planCategories = ref(planContent);
 
@@ -30,7 +30,7 @@ const getSelectedPlan = (id) => {
   });
   planCategories.value[id].selectedPlan = true;
   const selectedPlan = planCategories.value[id];
-  emit('update', {
+  emit("update", {
     data: { plan: planCategories.value[id] },
     valid: isObjectEmpty(selectedPlan)
   });
